@@ -13,12 +13,12 @@ export const Button = ({
 	...props
 }) => {
 	const variantClassName = classNames({
-		'bg-blue-700 hover:bg-blue-600 text-white rounded-md': variant === 'primary' && !disabled,
+		'bg-rose-700 hover:bg-rose-600 text-white rounded-md': variant === 'primary' && !disabled,
 		'bg-red-700 hover:bg-red-600 text-white rounded-md': variant === 'danger' && !disabled,
 		'bg-yellow-700 hover:bg-yellow-600 text-white rounded-md': variant === 'warning' && !disabled,
 		'bg-green-700 hover:bg-green-600 text-white rounded-md': variant === 'success' && !disabled,
 		'bg-transparent': variant === 'transparent' && !disabled,
-		'bg-blue-400 text-white rounded-md': variant === 'primary' && disabled,
+		'bg-rose-400 text-white rounded-md': variant === 'primary' && disabled,
 		'bg-red-400 text-white rounded-md': variant === 'danger' && disabled,
 		'bg-yellow-400 text-white rounded-md': variant === 'warning' && disabled,
 		'bg-green-400 text-white rounded-md': variant === 'success' && disabled,
