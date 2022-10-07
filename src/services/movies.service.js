@@ -31,7 +31,7 @@ export const getMoviesByTitle = async (query, page = 1) => {
 
 export const getMovieById = async (id) => {
 	try {
-		const response = await http.get(`/search/movie/${id}?&api_key=${API_KEY}`);
+		const response = await http.get(`/movie/${id}?&api_key=${API_KEY}`);
 		return { success: true, payload: response.data };
 	} catch (e) {
 		return { success: false, payload: e };
