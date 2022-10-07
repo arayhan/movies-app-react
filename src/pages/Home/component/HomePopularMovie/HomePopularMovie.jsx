@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 export const HomePopularMovie = () => {
 	const { homeData, isLoading, isFetched } = useMovieStore();
 
-	console.log({ homeData });
-
 	return (
 		<div className="bg-gray-200 py-20">
 			<div className="container space-y-8">
