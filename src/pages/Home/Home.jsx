@@ -1,4 +1,3 @@
-import { useCallback, useEffect } from 'react';
 import { HomeBanner } from './component/HomeBanner/HomeBanner';
 
 const Home = () => {

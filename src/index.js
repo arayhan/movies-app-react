@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { alertConfigs, AlertTemplate } from './components/third-parties';
 import App from './App';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

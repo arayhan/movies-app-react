@@ -1,0 +1,8 @@
+.slick-dots {
+	@apply absolute bottom-0 left-0 w-full flex justify-center items-center;
+}
+
+/* .slick-dots li button:before {
+	@apply text-white;
+	@apply text-2xl;
+} */
