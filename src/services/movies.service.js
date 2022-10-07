@@ -3,7 +3,7 @@ import { http, API_KEY } from './http';
 export const getHomeBannerMovies = async () => {
 	try {
 		const response = await http.get(
-			`/discover/movie?primary_release_year=2021&sort_by=vote_average.desc=&?api_key=${API_KEY}`
+			`/discover/movie?primary_release_year=2021&sort_by=vote_average.desc=&api_key=${API_KEY}`
 		);
 		return { success: true, payload: response.data };
 	} catch (e) {

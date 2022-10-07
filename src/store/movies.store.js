@@ -26,10 +26,11 @@ export const useMovieStore = create(
 						set({ isLoading: true });
 					}
 
-					const movies = await Promise.all[(getHomeBannerMovies(), getPopularMovies())];
+					const bannerMovies = await getHomeBannerMovies();
+					const popularMovies = await getPopularMovies();
 
 					set({
-						homeData: { bannerMovies: movies[0].payload, popularMovies: movies[1].payload },
+						homeData: { bannerMovies: bannerMovies.payload, popularMovies: popularMovies.payload },
 						isLoading: false,
 						isFetched: true,
 					});
