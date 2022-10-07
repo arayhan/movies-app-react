@@ -1,7 +1,12 @@
 import { useCallback, useEffect } from 'react';
+import { HomeBanner } from './component/HomeBanner/HomeBanner';
 
 const Home = () => {
-	return <div className="min-h-screen bg-gray-100"></div>;
+	return (
+		<div>
+			<HomeBanner />
+		</div>
+	);
 };
 
 export default Home;
