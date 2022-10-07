@@ -6,6 +6,7 @@ import './HomeBanner.css';
 
 export const HomeBanner = () => {
 	const settings = {
+		arrows: false,
 		dots: true,
 		infinite: true,
 		speed: 500,
