@@ -11,7 +11,9 @@ export const HomeBanner = () => {
 	const navigate = useNavigate();
 	const { homeData } = useMovieStore();
 
-	const bannerMovies = homeData.bannerMovies ? homeData.bannerMovies.results.filter((movie, index) => index < 7) : [];
+	const bannerMovies = homeData.bannerMovies?.results
+		? homeData.bannerMovies?.results?.filter((movie, index) => index < 7)
+		: [];
 
 	const settings = {
 		arrows: false,
