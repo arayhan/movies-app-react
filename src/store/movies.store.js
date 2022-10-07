@@ -1,6 +1,6 @@
 import create from 'zustand';
 import { persist, devtools } from 'zustand/middleware';
-import { getHomeBannerMovies, getPopularMovies } from '@/services';
+import { getHomeBannerMovies, getMoviesByTitle, getPopularMovies } from '@/services';
 
 export const useMovieStore = create(
 	devtools(
@@ -15,16 +15,13 @@ export const useMovieStore = create(
 				search: '',
 				isLoading: false,
 				isSubmitting: false,
-				isFetched: false,
 
 				setSearch: (search) => {
 					set({ search });
 				},
 
 				getHomeData: async () => {
-					if (!get().isFetched) {
-						set({ isLoading: true });
-					}
+					set({ isLoading: true });
 
 					const bannerMovies = await getHomeBannerMovies();
 					const popularMovies = await getPopularMovies();
@@ -35,8 +32,17 @@ export const useMovieStore = create(
 						isFetched: true,
 					});
 				},
-				getPopularMovies: async () => {},
-				getMoviesByTitle: async () => {},
+				getMoviesByTitle: async (query) => {
+					set({ isLoading: true });
+
+					const results = await getMoviesByTitle(query);
+
+					set({
+						searchResult: results.payload,
+						isLoading: false,
+						isFetched: true,
+					});
+				},
 				getMovieById: async () => {},
 			}),
 			{

@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const HomePopularMovie = () => {
-	const { homeData, isLoading, isFetched } = useMovieStore();
+	const { homeData, isLoading } = useMovieStore();
 
 	return (
 		<div className="bg-gray-200 py-20">
@@ -14,7 +14,7 @@ export const HomePopularMovie = () => {
 				</div>
 				{isLoading && <div>Loading...</div>}
 
-				{!isLoading && isFetched && (
+				{!isLoading && (
 					<div className="grid md:grid-cols-4 lg:grid-cols-6 gap-4">
 						{homeData.popularMovies?.results?.map((movie) => (
 							<Link key={movie.id} to={`/movie/${movie.id}`} className="rounded-xl overflow-hidden hover:opacity-80">

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { HomeBanner } from './component/HomeBanner/HomeBanner';
 import { HomePopularMovie } from './component/HomePopularMovie/HomePopularMovie';
 
-const Home = () => {
+export const Home = () => {
 	const { getHomeData } = useMovieStore();
 
 	useEffect(() => {
@@ -17,5 +17,3 @@ const Home = () => {
 		</div>
 	);
 };
-
-export default Home;

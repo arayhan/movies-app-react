@@ -28,7 +28,7 @@ export const HomeBanner = () => {
 		<div className="relative">
 			<Slider {...settings}>
 				{bannerMovies?.map((movie) => (
-					<div>
+					<div key={movie.id}>
 						<div className="relative py-40 flex items-center" style={{ height: 800, maxHeight: 800 }}>
 							<div className="absolute left-0 top-0 w-full h-full" style={{ height: 800, maxHeight: 800 }}>
 								<img className="w-full h-full object-cover" src={getImageURL(movie.backdrop_path)} alt="" />
