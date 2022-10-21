@@ -19,9 +19,9 @@ function GoogleLoginButton() {
 	return (
 		<button
 			onClick={handleLogin}
-			className="bg-slate-800 text-white w-full mb-6 flex items-center justify-center px-5 py-3 rounded-md"
+			className="bg-slate-800 hover:bg-slate-700 text-white w-full flex items-center justify-center px-5 py-3 rounded-md space-x-3"
 		>
-			<FaGoogle className="mr-3" /> <span> Login or Register with Google</span>
+			<FaGoogle size={14} /> <span className="text-sm"> Login or Register with Google</span>
 		</button>
 	);
 }
