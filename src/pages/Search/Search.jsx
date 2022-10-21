@@ -20,8 +20,6 @@ export const Search = () => {
 		}
 	}, [location, getMoviesByTitle]);
 
-	console.log({ searchResult });
-
 	return (
 		<div>
 			<div className="bg-gray-800">

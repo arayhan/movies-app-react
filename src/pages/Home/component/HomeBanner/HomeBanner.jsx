@@ -24,8 +24,6 @@ export const HomeBanner = () => {
 		slidesToScroll: 1,
 	};
 
-	console.log({ bannerMovies });
-
 	return (
 		<div className="relative">
 			<Slider {...settings}>
