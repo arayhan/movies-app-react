@@ -1,4 +1,5 @@
 import { Button } from '@/components/atoms';
+import { useAuthStore } from '@/store';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { FiSearch } from 'react-icons/fi';
@@ -6,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const AppNav = () => {
 	const navigate = useNavigate();
+	const { profile, isLoggedIn, logout } = useAuthStore();
 	const { handleSubmit, control } = useForm();
 
 	const handleSearch = (value) => {
@@ -46,10 +48,22 @@ export const AppNav = () => {
 						</Button>
 					</form>
 				</div>
-				<div>
-					<Button className={'px-8 py-3 rounded-full'} variant="primary">
-						Register
-					</Button>
+				<div className="flex items-center space-x-3">
+					{isLoggedIn && (
+						<div className="flex items-center space-x-2">
+							<Button className={'px-8 py-3 rounded-full'} variant="success" onClick={() => navigate('/profile')}>
+								Hello, {profile.name}!
+							</Button>
+							<Button className={'px-8 py-3 rounded-full'} variant="danger" onClick={logout}>
+								Logout
+							</Button>
+						</div>
+					)}
+					{!isLoggedIn && (
+						<Button className={'px-8 py-3 rounded-full'} variant="primary" onClick={() => navigate('/auth')}>
+							Login / Register
+						</Button>
+					)}
 				</div>
 			</div>
 		</div>

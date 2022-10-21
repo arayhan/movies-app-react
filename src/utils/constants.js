@@ -1,3 +1,6 @@
+export const WEB_CLIENT_ID = '914543176603-ii4kc22u7ei678orfve6q8ggps5o43r6.apps.googleusercontent.com';
+export const WEB_CLIENT_SECRET = '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';
+
 export const FORM_METHODS = {
 	CREATE: 'Create',
 	UPDATE: 'Update',

@@ -1,4 +1,4 @@
-import { http, API_KEY } from './http';
+import { httpMovieDB as http, API_KEY } from './http';
 
 export const getHomeBannerMovies = async () => {
 	try {
