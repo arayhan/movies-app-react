@@ -2,8 +2,9 @@ import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import { FaGoogle } from 'react-icons/fa';
 import { useAuthStore } from '@/store';
+import { Button } from '@/components/atoms';
 
-function GoogleLoginButton() {
+function GoogleLoginButton({ disabled }) {
 	const { loginWithGoogle } = useAuthStore();
 
 	const handleLogin = useGoogleLogin({
@@ -17,12 +18,15 @@ function GoogleLoginButton() {
 	});
 
 	return (
-		<button
+		<Button
 			onClick={handleLogin}
-			className="bg-slate-800 hover:bg-slate-700 text-white w-full flex items-center justify-center px-5 py-3 rounded-md space-x-3"
+			disabled={disabled}
+			variant="slate"
+			leftIcon={<FaGoogle size={14} />}
+			className={` text-white text-sm w-full flex items-center justify-center px-5 py-3 rounded-md space-x-3`}
 		>
-			<FaGoogle size={14} /> <span className="text-sm"> Login or Register with Google</span>
-		</button>
+			Login or Register with Google
+		</Button>
 	);
 }
 

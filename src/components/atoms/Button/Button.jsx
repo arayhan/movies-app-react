@@ -17,11 +17,13 @@ export const Button = ({
 		'bg-red-700 hover:bg-red-600 text-white rounded-md': variant === 'danger' && !disabled,
 		'bg-yellow-700 hover:bg-yellow-600 text-white rounded-md': variant === 'warning' && !disabled,
 		'bg-green-700 hover:bg-green-600 text-white rounded-md': variant === 'success' && !disabled,
+		'bg-slate-800 hover:bg-slate-700 text-white rounded-md': variant === 'slate' && !disabled,
 		'bg-transparent': variant === 'transparent' && !disabled,
 		'bg-rose-400 text-white rounded-md': variant === 'primary' && disabled,
 		'bg-red-400 text-white rounded-md': variant === 'danger' && disabled,
 		'bg-yellow-400 text-white rounded-md': variant === 'warning' && disabled,
 		'bg-green-400 text-white rounded-md': variant === 'success' && disabled,
+		'bg-slate-400': variant === 'slate' && disabled,
 		'text-gray-400': variant === 'transparent' && disabled,
 	});
 

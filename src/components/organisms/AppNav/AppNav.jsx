@@ -52,7 +52,7 @@ export const AppNav = () => {
 					{isLoggedIn && (
 						<div className="flex items-center space-x-2">
 							<Button className={'px-8 py-3 rounded-full'} variant="success" onClick={() => navigate('/profile')}>
-								Hello, {profile.name}!
+								Hello, {profile?.name}!
 							</Button>
 							<Button className={'px-8 py-3 rounded-full'} variant="danger" onClick={logout}>
 								Logout
