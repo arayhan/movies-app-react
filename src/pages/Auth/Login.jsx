@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import AuthContainer from './components/AuthContainer';
 import GoogleLoginButton from './components/GoogleLoginButton';
 
-export const Auth = () => {
+export const Login = () => {
 	const navigate = useNavigate();
 	const { isLoggedIn } = useAuthStore();
 

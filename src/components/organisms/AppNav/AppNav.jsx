@@ -60,7 +60,7 @@ export const AppNav = () => {
 						</div>
 					)}
 					{!isLoggedIn && (
-						<Button className={'px-8 py-3 rounded-full'} variant="primary" onClick={() => navigate('/auth')}>
+						<Button className={'px-8 py-3 rounded-full'} variant="primary" onClick={() => navigate('/login')}>
 							Login / Register
 						</Button>
 					)}
