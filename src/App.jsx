@@ -3,6 +3,7 @@ import { AppNav } from './components/organisms';
 import { Auth, Login } from './pages/Auth/Login';
 import { Home } from './pages/Home/Home';
 import { MovieDetail } from './pages/MovieDetail/MovieDetail';
+import Profile from './pages/Profile/Profile';
 import { Search } from './pages/Search/Search';
 import { useAuthStore } from './store';
 
@@ -34,7 +35,7 @@ function App() {
 					<Route path="/search" element={<Search />} />
 					<Route path="/movie/:movieID" element={<MovieDetail />} />
 					<Route element={<ProtectedRoute />}>
-						<Route path="/profile" element={<Home />} />
+						<Route path="/profile" element={<Profile />} />
 					</Route>
 				</Route>
 

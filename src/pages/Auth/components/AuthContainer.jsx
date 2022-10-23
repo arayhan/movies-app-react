@@ -8,7 +8,7 @@ const AuthContainer = ({ title, loading, children }) => {
 	const { isLoggedIn } = useAuthStore();
 
 	useEffect(() => {
-		if (isLoggedIn) navigate('/');
+		if (isLoggedIn) navigate('/profile');
 	}, [isLoggedIn, navigate]);
 
 	return (
