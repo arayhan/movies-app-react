@@ -27,7 +27,19 @@ export const useAuthStore = create(
 
 					set({ loading: false });
 				},
+				register: async (request, callback) => {
+					set({ loading: true });
+
+					const { success, payload } = await login(request);
+
+					if (success) set({ isLoggedIn: true, token: payload.token, error: null });
+					else callback(payload.message);
+
+					set({ loading: false });
+				},
 				loginWithGoogle: async (accessToken) => {
+					set({ loading: true });
+
 					const { whoAmI } = get();
 					const { success, payload } = await loginWithGoogle(accessToken);
 
@@ -37,6 +49,8 @@ export const useAuthStore = create(
 					} else {
 						set({ error: payload.message });
 					}
+
+					set({ loading: false });
 				},
 				logout: () => {
 					set({ isLoggedIn: false, token: null });
