@@ -30,3 +30,13 @@ export const loginWithGoogle = async (accessToken) => {
 		return { success: false, payload: error.response.data };
 	}
 };
+
+export const register = async (request) => {
+	try {
+		const response = await http.post(`/auth/register`, request);
+
+		return { success: true, payload: response.data };
+	} catch (error) {
+		return { success: false, payload: error.response.data };
+	}
+};

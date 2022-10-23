@@ -1,6 +1,7 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { AppNav } from './components/organisms';
-import { Auth, Login } from './pages/Auth/Login';
+import { Login } from './pages/Auth/Login';
+import { Register } from './pages/Auth/Register';
 import { Home } from './pages/Home/Home';
 import { MovieDetail } from './pages/MovieDetail/MovieDetail';
 import Profile from './pages/Profile/Profile';
@@ -41,6 +42,7 @@ function App() {
 
 				<Route element={<AuthenticationRoute />}>
 					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
 				</Route>
 			</Routes>
 		</div>

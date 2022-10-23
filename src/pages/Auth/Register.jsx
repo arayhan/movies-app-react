@@ -17,14 +17,22 @@ export const Register = () => {
 	const { loading } = useAuthStore();
 	const { isLoggedIn, register } = useAuthStore();
 
-	const onRegister = (values) => register(values, (error) => alert.show(error, { type: 'error' }));
+	const onRegister = (values) =>
+		register(values, (response) => {
+			if (response.success) {
+				alert.show('Registrasi berhasil, silakan login', { type: 'success' });
+				navigate('/login');
+			} else {
+				alert.show(response.payload.message, { type: 'error' });
+			}
+		});
 
 	useEffect(() => {
 		if (isLoggedIn) navigate('/');
 	}, [isLoggedIn, navigate]);
 
 	return (
-		<AuthContainer title="Register">
+		<AuthContainer title="Register" loading={loading}>
 			<div className="flex flex-col space-y-3">
 				<div className="space-y-3 py-8">
 					<Controller

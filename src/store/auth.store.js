@@ -1,4 +1,4 @@
-import { getMe, login, loginWithGoogle } from '@/services';
+import { getMe, login, register, loginWithGoogle } from '@/services';
 import create from 'zustand';
 import { persist, devtools } from 'zustand/middleware';
 
@@ -22,18 +22,19 @@ export const useAuthStore = create(
 
 					const { success, payload } = await login(request);
 
-					if (success) set({ isLoggedIn: true, token: payload.token, error: null });
-					else callback(payload.message);
+					if (success) {
+						get().whoAmI();
+						set({ isLoggedIn: true, token: payload.token });
+					} else callback(payload.message);
 
 					set({ loading: false });
 				},
 				register: async (request, callback) => {
 					set({ loading: true });
 
-					const { success, payload } = await login(request);
+					const response = await register(request);
 
-					if (success) set({ isLoggedIn: true, token: payload.token, error: null });
-					else callback(payload.message);
+					callback(response);
 
 					set({ loading: false });
 				},
