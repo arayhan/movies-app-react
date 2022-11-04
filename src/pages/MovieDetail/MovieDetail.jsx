@@ -2,14 +2,15 @@ import { getImageURL } from '@/utils/helpers';
 import React from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useMovieStore } from '@/store/store';
 import { Loader } from '@/components/atoms';
 import moment from 'moment';
+import { useSelector } from 'react-redux';
+import { ACTION_MOVIE } from '@/store/actions';
 
 export const MovieDetail = () => {
 	const { movieID } = useParams();
-	const { movieDetail, isLoading, isSuccess } = useMovieStore();
-	const { getMovieById } = useMovieStore();
+	const { movieDetail, isLoading, isSuccess } = useSelector((state) => state.movie);
+	const { getMovieById } = ACTION_MOVIE;
 
 	useEffect(() => {
 		getMovieById(movieID);

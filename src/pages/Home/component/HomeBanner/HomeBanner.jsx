@@ -1,7 +1,7 @@
 import { Button } from '@/components/atoms';
-import { useMovieStore } from '@/store/store';
 import { getImageURL } from '@/utils/helpers';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 
@@ -9,7 +9,7 @@ import './HomeBanner.css';
 
 export const HomeBanner = () => {
 	const navigate = useNavigate();
-	const { homeData } = useMovieStore();
+	const { homeData } = useSelector((state) => state.movie);
 
 	const bannerMovies = homeData.bannerMovies?.results
 		? homeData.bannerMovies?.results?.filter((movie, index) => index < 7)

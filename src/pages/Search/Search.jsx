@@ -1,12 +1,13 @@
-import { useMovieStore } from '@/store/store';
+import { ACTION_MOVIE } from '@/store/actions';
 import { getImageURL, queryStringToObject } from '@/utils/helpers';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 export const Search = () => {
 	const location = useLocation();
-	const { searchResult, isLoading } = useMovieStore();
-	const { getMoviesByTitle } = useMovieStore();
+	const { searchResult, isLoading } = useSelector((state) => state.movie);
+	const { getMoviesByTitle } = ACTION_MOVIE;
 
 	const [queries, setQueries] = useState(null);
 

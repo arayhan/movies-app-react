@@ -1,8 +1,8 @@
-import { useAuthStore } from '@/store/store';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
-	const { profile } = useAuthStore();
+	const { profile } = useSelector((state) => state.auth);
 
 	return (
 		<div>

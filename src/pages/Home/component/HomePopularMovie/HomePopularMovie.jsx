@@ -1,10 +1,10 @@
-import { useMovieStore } from '@/store/store';
 import { getImageURL } from '@/utils/helpers';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export const HomePopularMovie = () => {
-	const { homeData, isLoading } = useMovieStore();
+	const { homeData, isLoading } = useSelector((state) => state.movie);
 
 	return (
 		<div className="bg-gray-200 py-20">

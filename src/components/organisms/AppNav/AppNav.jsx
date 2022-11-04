@@ -1,14 +1,20 @@
 import { Button } from '@/components/atoms';
+import { ACTION_AUTH } from '@/store/actions';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { FiSearch } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const AppNav = () => {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { profile, isLoggedIn, logout } = useSelector((state) => state.auth);
+	const { profile, isLoggedIn } = useSelector((state) => state.auth);
 	const { handleSubmit, control } = useForm();
+
+	const { handleLogout } = ACTION_AUTH;
+
+	const onLogout = () => dispatch(handleLogout());
 
 	const handleSearch = (value) => {
 		navigate(`/search?query=${value.search}`);
@@ -54,7 +60,7 @@ export const AppNav = () => {
 							<Button className={'px-8 py-3 rounded-full'} variant="success" onClick={() => navigate('/profile')}>
 								Hello, {profile?.name}!
 							</Button>
-							<Button className={'px-8 py-3 rounded-full'} variant="danger" onClick={logout}>
+							<Button className={'px-8 py-3 rounded-full'} variant="danger" onClick={onLogout}>
 								Logout
 							</Button>
 						</div>

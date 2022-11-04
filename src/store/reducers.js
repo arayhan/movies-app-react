@@ -2,7 +2,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth.reducer';
-// import movieReducer from './movie/movie.reducer';
+import movieReducer from './movie/movie.reducer';
 
 const persistConfig = {
 	key: 'root',
@@ -12,7 +12,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
 	auth: authReducer,
-	// movie: movieReducer,
+	movie: movieReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
