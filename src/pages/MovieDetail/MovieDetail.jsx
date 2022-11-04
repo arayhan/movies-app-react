@@ -2,7 +2,7 @@ import { getImageURL } from '@/utils/helpers';
 import React from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useMovieStore } from '@/store';
+import { useMovieStore } from '@/store/store';
 import { Loader } from '@/components/atoms';
 import moment from 'moment';
 

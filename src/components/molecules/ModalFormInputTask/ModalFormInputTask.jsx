@@ -2,7 +2,7 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { FiBook } from 'react-icons/fi';
 import { Modal } from '@/components/atoms';
-import { useTodoStore } from '@/store';
+import { useTodoStore } from '@/store/store';
 
 export const ModalFormInputTask = ({ id, task, onClose }) => {
 	const { isSubmitting, postTodo, updateTodo } = useTodoStore();

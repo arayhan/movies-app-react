@@ -1,13 +1,13 @@
 import { Button } from '@/components/atoms';
-import { useAuthStore } from '@/store';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { FiSearch } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const AppNav = () => {
 	const navigate = useNavigate();
-	const { profile, isLoggedIn, logout } = useAuthStore();
+	const { profile, isLoggedIn, logout } = useSelector((state) => state.auth);
 	const { handleSubmit, control } = useForm();
 
 	const handleSearch = (value) => {

@@ -1,4 +1,4 @@
-import { useMovieStore } from '@/store';
+import { useMovieStore } from '@/store/store';
 import { getImageURL } from '@/utils/helpers';
 import React from 'react';
 import { Link } from 'react-router-dom';

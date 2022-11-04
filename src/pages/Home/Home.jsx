@@ -1,4 +1,4 @@
-import { useMovieStore } from '@/store';
+import { useMovieStore } from '@/store/store';
 import { useEffect } from 'react';
 import { HomeBanner } from './component/HomeBanner/HomeBanner';
 import { HomePopularMovie } from './component/HomePopularMovie/HomePopularMovie';

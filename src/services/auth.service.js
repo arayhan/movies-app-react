@@ -1,6 +1,6 @@
 import { getAuthConfig, http } from './http';
 
-export const getMe = async (token) => {
+const getMe = async (token) => {
 	try {
 		const response = await http.get(`/auth/me`, getAuthConfig(token));
 
@@ -10,7 +10,7 @@ export const getMe = async (token) => {
 	}
 };
 
-export const login = async (request) => {
+const login = async (request) => {
 	try {
 		const response = await http.post(`/auth/login`, request);
 
@@ -20,7 +20,7 @@ export const login = async (request) => {
 	}
 };
 
-export const loginWithGoogle = async (accessToken) => {
+const loginWithGoogle = async (accessToken) => {
 	try {
 		const data = { access_token: accessToken };
 		const response = await http.post(`/auth/google`, data);
@@ -31,7 +31,7 @@ export const loginWithGoogle = async (accessToken) => {
 	}
 };
 
-export const register = async (request) => {
+const register = async (request) => {
 	try {
 		const response = await http.post(`/auth/register`, request);
 
@@ -40,3 +40,5 @@ export const register = async (request) => {
 		return { success: false, payload: error.response.data };
 	}
 };
+
+export const SERVICE_AUTH = { getMe, login, loginWithGoogle, register };

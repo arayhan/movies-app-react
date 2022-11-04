@@ -1,4 +1,4 @@
-import { useMovieStore } from '@/store';
+import { useMovieStore } from '@/store/store';
 import { getImageURL, queryStringToObject } from '@/utils/helpers';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';

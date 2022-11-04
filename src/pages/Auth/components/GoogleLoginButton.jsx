@@ -1,16 +1,21 @@
 import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import { FaGoogle } from 'react-icons/fa';
-import { useAuthStore } from '@/store';
 import { Button } from '@/components/atoms';
+import { ACTION_AUTH } from '@/store/auth/auth.actions';
+import { useDispatch } from 'react-redux';
+import { useAlert } from 'react-alert';
 
 function GoogleLoginButton({ disabled }) {
-	const { loginWithGoogle } = useAuthStore();
+	const dispatch = useDispatch();
+	const alert = useAlert();
 
-	const handleLogin = useGoogleLogin({
-		onSuccess: async (response) => {
+	const { handleLoginWithGoogle } = ACTION_AUTH;
+
+	const onLogin = useGoogleLogin({
+		onSuccess: (response) => {
 			const accessToken = response.access_token;
-			loginWithGoogle(accessToken);
+			dispatch(handleLoginWithGoogle(accessToken, (error) => alert.show(error, { type: 'error' })));
 		},
 		onError: (error) => {
 			alert(error);
@@ -19,7 +24,7 @@ function GoogleLoginButton({ disabled }) {
 
 	return (
 		<Button
-			onClick={handleLogin}
+			onClick={onLogin}
 			disabled={disabled}
 			variant="slate"
 			leftIcon={<FaGoogle size={14} />}

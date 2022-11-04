@@ -1,25 +1,29 @@
 import { Button } from '@/components/atoms';
-import { useAuthStore } from '@/store';
 import React from 'react';
-import { useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import { Controller, useForm } from 'react-hook-form';
 import { FiKey, FiMail } from 'react-icons/fi';
-import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ACTION_AUTH } from '@/store/actions';
 import AuthContainer from './components/AuthContainer';
 import GoogleLoginButton from './components/GoogleLoginButton';
 
 export const Login = () => {
+	const dispatch = useDispatch();
 	const alert = useAlert();
+
 	const { control, handleSubmit } = useForm();
 
-	const { loading } = useAuthStore();
-	const { login } = useAuthStore();
+	const { handleLogin } = ACTION_AUTH;
+	const { isLoading } = useSelector((state) => state.auth);
 
-	const onLogin = (values) => login(values, (error) => alert.show(error, { type: 'error' }));
+	const onLogin = (values) => {
+		dispatch(handleLogin(values, (error) => alert.show(error, { type: 'error' })));
+	};
 
 	return (
-		<AuthContainer title="Login" loading={loading}>
+		<AuthContainer title="Login" loading={isLoading}>
 			<div className="flex flex-col space-y-3">
 				<div className="space-y-3 py-8">
 					<Controller
@@ -61,7 +65,7 @@ export const Login = () => {
 					className="w-full px-6 py-3 text-center items-center justify-center"
 					variant={'primary'}
 					onClick={handleSubmit(onLogin)}
-					disabled={loading}
+					disabled={isLoading}
 				>
 					Login
 				</Button>
@@ -72,7 +76,7 @@ export const Login = () => {
 					</Link>
 				</div>
 				<hr />
-				<GoogleLoginButton disabled={loading} />
+				<GoogleLoginButton disabled={isLoading} />
 			</div>
 		</AuthContainer>
 	);

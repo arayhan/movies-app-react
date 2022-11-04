@@ -1,5 +1,5 @@
 import { Button } from '@/components/atoms';
-import { useMovieStore } from '@/store';
+import { useMovieStore } from '@/store/store';
 import { getImageURL } from '@/utils/helpers';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';

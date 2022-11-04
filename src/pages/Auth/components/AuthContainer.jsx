@@ -1,11 +1,11 @@
 import FullPageLoader from '@/components/atoms/FullPageLoader/FullPageLoader';
-import { useAuthStore } from '@/store';
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContainer = ({ title, loading, children }) => {
 	const navigate = useNavigate();
-	const { isLoggedIn } = useAuthStore();
+	const { isLoggedIn } = useSelector((state) => state.auth);
 
 	useEffect(() => {
 		if (isLoggedIn) navigate('/profile');

@@ -1,6 +1,6 @@
 import { httpMovieDB as http, API_KEY } from './http';
 
-export const getHomeBannerMovies = async () => {
+const getHomeBannerMovies = async () => {
 	try {
 		const response = await http.get(
 			`/discover/movie?primary_release_year=2021&sort_by=vote_average.desc=&api_key=${API_KEY}`
@@ -11,7 +11,7 @@ export const getHomeBannerMovies = async () => {
 	}
 };
 
-export const getPopularMovies = async () => {
+const getPopularMovies = async () => {
 	try {
 		const response = await http.get(`/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`);
 		return { success: true, payload: response.data };
@@ -20,7 +20,7 @@ export const getPopularMovies = async () => {
 	}
 };
 
-export const getMoviesByTitle = async (query, page = 1) => {
+const getMoviesByTitle = async (query, page = 1) => {
 	try {
 		const response = await http.get(`/search/movie?query=${query}&page=${page}&api_key=${API_KEY}`);
 		return { success: true, payload: response.data };
@@ -29,7 +29,7 @@ export const getMoviesByTitle = async (query, page = 1) => {
 	}
 };
 
-export const getMovieById = async (id) => {
+const getMovieById = async (id) => {
 	try {
 		const response = await http.get(`/movie/${id}?&api_key=${API_KEY}`);
 		return { success: true, payload: response.data };
@@ -37,3 +37,5 @@ export const getMovieById = async (id) => {
 		return { success: false, payload: e };
 	}
 };
+
+export const SERVICE_MOVIE = { getHomeBannerMovies, getPopularMovies, getMoviesByTitle, getMovieById };

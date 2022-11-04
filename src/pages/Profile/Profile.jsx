@@ -1,4 +1,4 @@
-import { useAuthStore } from '@/store';
+import { useAuthStore } from '@/store/store';
 import React from 'react';
 
 const Profile = () => {
