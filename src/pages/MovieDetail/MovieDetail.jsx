@@ -4,17 +4,18 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader } from '@/components/atoms';
 import moment from 'moment';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ACTION_MOVIE } from '@/store/actions';
 
 export const MovieDetail = () => {
+	const dispatch = useDispatch();
 	const { movieID } = useParams();
 	const { movieDetail, isLoading, isSuccess } = useSelector((state) => state.movie);
 	const { getMovieById } = ACTION_MOVIE;
 
 	useEffect(() => {
-		getMovieById(movieID);
-	}, [movieID, getMovieById]);
+		dispatch(getMovieById(movieID));
+	}, [dispatch, movieID, getMovieById]);
 
 	return (
 		<div>

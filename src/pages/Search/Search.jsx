@@ -1,10 +1,11 @@
 import { ACTION_MOVIE } from '@/store/actions';
 import { getImageURL, queryStringToObject } from '@/utils/helpers';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 export const Search = () => {
+	const dispatch = useDispatch();
 	const location = useLocation();
 	const { searchResult, isLoading } = useSelector((state) => state.movie);
 	const { getMoviesByTitle } = ACTION_MOVIE;
@@ -15,11 +16,11 @@ export const Search = () => {
 		if (location.search) {
 			const queries = queryStringToObject(location.search);
 
-			if (queries.query) getMoviesByTitle(queries.query);
+			if (queries.query) dispatch(getMoviesByTitle(queries.query));
 
 			setQueries(queries);
 		}
-	}, [location, getMoviesByTitle]);
+	}, [dispatch, location, getMoviesByTitle]);
 
 	return (
 		<div>
